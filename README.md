@@ -1,12 +1,8 @@
----
-output: github_document
----
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 
 
-# Installation
+## Installation
 
 
 ```r
@@ -19,7 +15,7 @@ install_github("ChandlerLutz/VARfunctions")
 library(VARfunctions)
 ```
 
-## Load the Data
+## Load example Data
 
 Load the data directly from the package
 
@@ -45,7 +41,7 @@ is.xts(us.macro.data)
 #> [1] TRUE
 ```
 
-# Local Projection Impulse Response
+## Local Projection Impulse Response
 
 The `lp_irf()` function returns the local projection impulse response
 of Jorda (2005) for forecast horizon `h` and `max.lags` max lags
