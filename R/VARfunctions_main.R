@@ -8,6 +8,7 @@
 #'
 #' A collection of useful VAR functions
 #' @importFrom magrittr %>%
+#' @import xts stats
 "_PACKAGE"
 
 ##For magrittr dot. From https://github.com/tidyverse/magrittr/issues/29

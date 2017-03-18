@@ -75,13 +75,13 @@ var_aic <- function(yy, xx) {
 #' @export
 lp_irf <- function(y, h, max.lags) {
 
-    if (!is.xts(y))
+    if (!xts::is.xts(y))
         stop("Error: y needs to be an xts object")
 
     K <- ncol(y) ##Number of variables in y
 
     ##All possible lags of the data
-    y.temp <- lag(y, 0:(h + max.lags)) %>% na.omit %>%
+    y.temp <- xts::lag.xts(y, 0:(h + max.lags)) %>% na.omit %>%
         as.matrix(.)
     ##The LHS variables
     yy <- y.temp[, 1:K];
