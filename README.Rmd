@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Installation
+# Installation
 
 ```{r eval=FALSE}
 library(devtools)
@@ -39,7 +39,7 @@ The data is an xts object
 is.xts(us.macro.data)
 ```
 
-## Local Projection Impulse Response
+# Local Projection Impulse Response
 
 The `lp_irf()` function returns the local projection impulse response
 of Jorda (2005) for forecast horizon `h` and `max.lags` max lags
@@ -54,15 +54,22 @@ industrial production, a 0.025 percent increase in the inflation rate,
 a -0.0077 percentage point decline in the unemployment rate, and a 1.3
 percentage point increase in the fed funds rate the next month.
 
-## Local Projection Impulse Response $h=1,\cdots,12$
+## Local Projection Impulse Response h = 1,...,12
 
 ```{r }
 LP.irfs.out <- lapply(1:12, function(h) {
     lp_irf(y = us.macro.data, h = h,
-           max.lags = 14))
+           max.lags = 14)
+})
 LP.irfs.out <- do.call("rbind", LP.irfs.out)
 head(LP.irfs.out)
+```
 
+## Local Projection IRFs for just the fed funds rate
+
+```{r }
+LP.irfs.out[grepl("FEDFUNDS", rownames(LP.irfs.out)), ]
+```
 
 
 ## How the data was downloaded
