@@ -95,7 +95,7 @@ lp_irf <- function(y, h, max.lags) {
     temp.xx <- xx[, 1:K];
     temp.xx <- cbind(rep(1, nrow(temp.xx)), temp.xx)
     best.betas <- var_betas(yy, temp.xx) ##The betas
-    best.aic <- var_aic(yy, xx) #The AIC
+    best.aic <- var_aic(yy, temp.xx) #The AIC
     ## - Loop and look for a better lag length  (use the AIC) - ##
     for (i in 2:max.lags) {
         temp.xx <- xx[, 1:(i * K)]
